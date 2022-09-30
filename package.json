@@ -1,0 +1,42 @@
+{
+  "name": "server",
+  "version": "1.0.0",
+  "description": "",
+  "main": "index.js",
+  "type": "module",
+  "scripts": {
+    "build-client": "cd.. && npm run build --prefix client",
+    "install-client": "cd.. && npm install --prefix client",
+    "heroku-postbuild": "npm run install-client && npm run build-client",
+    "server": "nodemon server --ignore client",
+    "client": "cd.. && npm start --prefix client",
+    "start": "concurrently --kill-others-on-fail \"npm run server\" \" npm run client\""
+  },
+  "keywords": [],
+  "author": "",
+  "license": "ISC",
+  "devDependencies": {
+    "nodemon": "^2.0.19"
+  },
+  "dependencies": {
+    "bcryptjs": "^2.4.3",
+    "concurrently": "^7.4.0",
+    "cors": "^2.8.5",
+    "dotenv": "^16.0.2",
+    "express": "^4.18.1",
+    "express-async-errors": "^3.1.1",
+    "express-mongo-sanitize": "^2.2.0",
+    "express-rate-limit": "^6.6.0",
+    "helmet": "^6.0.0",
+    "http-status-codes": "^2.2.0",
+    "jsonwebtoken": "^8.5.1",
+    "moment": "^2.29.4",
+    "mongoose": "^6.5.4",
+    "morgan": "^1.10.0",
+    "validator": "^13.7.0",
+    "xss-clean": "^0.1.1"
+  },
+  "engines": {
+    "node": "16.x"
+  }
+}
